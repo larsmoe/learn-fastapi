@@ -16,6 +16,9 @@ class UserResponse(UserBase):
     created_at: datetime
     id: int
 
+    class Config:
+        orm_mode = True
+
 class Post(BaseModel):
     title: str
     content: str
@@ -34,6 +37,9 @@ class PostRespose(PostBase):
     created_at: datetime
     owner_id: int
     owner: UserResponse
+
+    class Config:
+        orm_mode = True
 
 class PostOut(BaseModel):
     Post: PostRespose
